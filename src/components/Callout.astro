@@ -1,0 +1,12 @@
+---
+type Props = {
+  title?: string;
+};
+
+const { title } = Astro.props;
+---
+
+<aside class="border-l-4 border-[var(--accent)] rounded-[0.35rem] bg-[color-mix(in_srgb,var(--accent)_10%,transparent)] p-4">
+  {title && <strong>{title}</strong>}
+  <slot />
+</aside>

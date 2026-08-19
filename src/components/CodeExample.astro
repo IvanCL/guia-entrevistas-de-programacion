@@ -1,0 +1,16 @@
+---
+type Props = {
+  title?: string;
+  description?: string;
+  language?: string;
+};
+
+const { title, description, language } = Astro.props;
+---
+
+<section class="my-6 border border-[--border] rounded-lg p-4 bg-[--panel-bg] [&_pre]:!bg-[var(--code-bg)] [&_pre]:!text-[var(--page-fg)] [&_pre]:border [&_pre]:border-[var(--border)] [&_pre]:rounded-lg [&_pre]:p-4 [&_pre]:overflow-x-auto">
+  {title && <h3 class="mt-0">{title}</h3>}
+  {description && <p>{description}</p>}
+  {language && <span class="inline-block mb-3 text-[--muted-fg] text-[0.8rem] uppercase">{language}</span>}
+  <slot />
+</section>

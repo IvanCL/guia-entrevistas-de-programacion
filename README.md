@@ -1,5 +1,45 @@
 # Guía para entrevistas técnicas como Ingeniero de software
 
+## Navigable website
+
+This guide is now published as an Astro static site. The README preserves the historical index, while the browsable content lives in `src/content/guide/**/*.mdx`.
+
+Visit the guide at [caress.dev/guia](https://caress.dev/guia).
+
+### Local development
+
+Use Node.js `>=22.12.0`.
+
+```bash
+npm install
+npm run dev
+```
+
+### Validation
+
+```bash
+npm run build
+npm run test
+npm run test:e2e
+npm run verify:content
+npm run check:links
+```
+
+`npm run verify:content` compares the README sections and references against the migrated MDX files. `npm run check:links` validates URL syntax; to verify external availability over the network, run `npm run check:links -- --fetch`.
+
+### Add content
+
+Each new section must be added as an `.mdx` file in `src/content/guide/` and include `title`, `description`, `category`, `sidebar.order` and `references`. Original references should be defined in the frontmatter, while custom examples can be added using `examples` or as MDX code blocks within the content.
+
+## Contributing
+
+Contributions are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md) for the local setup, branch and commit conventions, content rules, and required validation.
+
+- Suggest a new topic or resource with the [content suggestion issue template](.github/ISSUE_TEMPLATE/content_suggestion.yml), or report a problem with the [bug report template](.github/ISSUE_TEMPLATE/bug_report.yml).
+- Open focused pull requests using the [PR template](.github/pull_request_template.md). Link the related issue with `Closes #<issue-number>` when applicable.
+- For content changes, run `npm run verify:content` and `npm run check:links`; run `npm run check:links -- --fetch` to verify that reference websites respond.
+- Project skills are available in `.claude/skills/`: `create-content` for new guide pages, `create-commit` for focused Conventional Commits, and `create-pr` for preparing draft pull requests.
+
 ## Índice
 
 - [Guía para entrevistas técnicas como Ingeniero de software](#guía-para-entrevistas-técnicas-como-ingeniero-de-software)
